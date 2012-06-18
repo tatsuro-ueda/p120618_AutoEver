@@ -1,0 +1,321 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07B28A1F158D65B900E46615 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B28A1E158D65B900E46615 /* UIKit.framework */; };
+		07B28A21158D65B900E46615 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B28A20158D65B900E46615 /* Foundation.framework */; };
+		07B28A23158D65B900E46615 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B28A22158D65B900E46615 /* CoreGraphics.framework */; };
+		07B28A29158D65B900E46615 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07B28A27158D65B900E46615 /* InfoPlist.strings */; };
+		07B28A2B158D65B900E46615 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B28A2A158D65B900E46615 /* main.m */; };
+		07B28A2F158D65B900E46615 /* AEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B28A2E158D65B900E46615 /* AEAppDelegate.m */; };
+		07B28A32158D65B900E46615 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B28A30158D65B900E46615 /* MainStoryboard.storyboard */; };
+		07B28A35158D65B900E46615 /* AEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B28A34158D65B900E46615 /* AEViewController.m */; };
+		07CE3A0C158D6AD0003EC791 /* AESettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07CE3A0B158D6AD0003EC791 /* AESettingViewController.m */; };
+		07CE3A11158D6C55003EC791 /* icon_arrow_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CE3A0E158D6C55003EC791 /* icon_arrow_left.png */; };
+		07CE3A12158D6C55003EC791 /* icon_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CE3A0F158D6C55003EC791 /* icon_home.png */; };
+		07CE3A13158D6C55003EC791 /* icon_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CE3A10158D6C55003EC791 /* icon_settings.png */; };
+		07CE3A15158D6FD4003EC791 /* 120615-arrows.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CE3A14158D6FD4003EC791 /* 120615-arrows.png */; };
+		07DF164B158DB66F0060BF5A /* 120616-clockIcon57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DF164A158DB66F0060BF5A /* 120616-clockIcon57x57.png */; };
+		07DF164E158DB6750060BF5A /* 120616-clockIcon114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DF164D158DB6750060BF5A /* 120616-clockIcon114x114.png */; };
+		07DF1650158DB6850060BF5A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DF164F158DB6850060BF5A /* Default.png */; };
+		07DF1652158DB6880060BF5A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DF1651158DB6880060BF5A /* Default@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		07B28A1A158D65B900E46615 /* AutoEver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoEver.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		07B28A1E158D65B900E46615 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		07B28A20158D65B900E46615 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		07B28A22158D65B900E46615 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		07B28A26158D65B900E46615 /* AutoEver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AutoEver-Info.plist"; sourceTree = "<group>"; };
+		07B28A28158D65B900E46615 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		07B28A2A158D65B900E46615 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		07B28A2C158D65B900E46615 /* AutoEver-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AutoEver-Prefix.pch"; sourceTree = "<group>"; };
+		07B28A2D158D65B900E46615 /* AEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AEAppDelegate.h; sourceTree = "<group>"; };
+		07B28A2E158D65B900E46615 /* AEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AEAppDelegate.m; sourceTree = "<group>"; };
+		07B28A31158D65B900E46615 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		07B28A33158D65B900E46615 /* AEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AEViewController.h; sourceTree = "<group>"; };
+		07B28A34158D65B900E46615 /* AEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AEViewController.m; sourceTree = "<group>"; };
+		07CE3A0A158D6AD0003EC791 /* AESettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESettingViewController.h; sourceTree = "<group>"; };
+		07CE3A0B158D6AD0003EC791 /* AESettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESettingViewController.m; sourceTree = "<group>"; };
+		07CE3A0E158D6C55003EC791 /* icon_arrow_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_arrow_left.png; sourceTree = "<group>"; };
+		07CE3A0F158D6C55003EC791 /* icon_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_home.png; sourceTree = "<group>"; };
+		07CE3A10158D6C55003EC791 /* icon_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_settings.png; sourceTree = "<group>"; };
+		07CE3A14158D6FD4003EC791 /* 120615-arrows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120615-arrows.png"; sourceTree = "<group>"; };
+		07DF164A158DB66F0060BF5A /* 120616-clockIcon57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120616-clockIcon57x57.png"; sourceTree = "<group>"; };
+		07DF164D158DB6750060BF5A /* 120616-clockIcon114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120616-clockIcon114x114.png"; sourceTree = "<group>"; };
+		07DF164F158DB6850060BF5A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		07DF1651158DB6880060BF5A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07B28A17158D65B800E46615 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07B28A1F158D65B900E46615 /* UIKit.framework in Frameworks */,
+				07B28A21158D65B900E46615 /* Foundation.framework in Frameworks */,
+				07B28A23158D65B900E46615 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07B28A0F158D65B800E46615 = {
+			isa = PBXGroup;
+			children = (
+				07DF1651158DB6880060BF5A /* Default@2x.png */,
+				07DF164F158DB6850060BF5A /* Default.png */,
+				07DF164D158DB6750060BF5A /* 120616-clockIcon114x114.png */,
+				07DF164A158DB66F0060BF5A /* 120616-clockIcon57x57.png */,
+				07B28A24158D65B900E46615 /* AutoEver */,
+				07B28A1D158D65B900E46615 /* Frameworks */,
+				07B28A1B158D65B900E46615 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		07B28A1B158D65B900E46615 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07B28A1A158D65B900E46615 /* AutoEver.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		07B28A1D158D65B900E46615 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07B28A1E158D65B900E46615 /* UIKit.framework */,
+				07B28A20158D65B900E46615 /* Foundation.framework */,
+				07B28A22158D65B900E46615 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		07B28A24158D65B900E46615 /* AutoEver */ = {
+			isa = PBXGroup;
+			children = (
+				07CE3A14158D6FD4003EC791 /* 120615-arrows.png */,
+				07CE3A0E158D6C55003EC791 /* icon_arrow_left.png */,
+				07CE3A0F158D6C55003EC791 /* icon_home.png */,
+				07CE3A10158D6C55003EC791 /* icon_settings.png */,
+				07B28A2D158D65B900E46615 /* AEAppDelegate.h */,
+				07B28A2E158D65B900E46615 /* AEAppDelegate.m */,
+				07B28A30158D65B900E46615 /* MainStoryboard.storyboard */,
+				07B28A33158D65B900E46615 /* AEViewController.h */,
+				07B28A34158D65B900E46615 /* AEViewController.m */,
+				07CE3A0A158D6AD0003EC791 /* AESettingViewController.h */,
+				07CE3A0B158D6AD0003EC791 /* AESettingViewController.m */,
+				07B28A25158D65B900E46615 /* Supporting Files */,
+			);
+			path = AutoEver;
+			sourceTree = "<group>";
+		};
+		07B28A25158D65B900E46615 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				07B28A26158D65B900E46615 /* AutoEver-Info.plist */,
+				07B28A27158D65B900E46615 /* InfoPlist.strings */,
+				07B28A2A158D65B900E46615 /* main.m */,
+				07B28A2C158D65B900E46615 /* AutoEver-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		07B28A19158D65B800E46615 /* AutoEver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07B28A38158D65B900E46615 /* Build configuration list for PBXNativeTarget "AutoEver" */;
+			buildPhases = (
+				07B28A16158D65B800E46615 /* Sources */,
+				07B28A17158D65B800E46615 /* Frameworks */,
+				07B28A18158D65B800E46615 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AutoEver;
+			productName = AutoEver;
+			productReference = 07B28A1A158D65B900E46615 /* AutoEver.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		07B28A11158D65B800E46615 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AE;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 07B28A14158D65B800E46615 /* Build configuration list for PBXProject "AutoEver" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 07B28A0F158D65B800E46615;
+			productRefGroup = 07B28A1B158D65B900E46615 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				07B28A19158D65B800E46615 /* AutoEver */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		07B28A18158D65B800E46615 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07B28A29158D65B900E46615 /* InfoPlist.strings in Resources */,
+				07B28A32158D65B900E46615 /* MainStoryboard.storyboard in Resources */,
+				07CE3A11158D6C55003EC791 /* icon_arrow_left.png in Resources */,
+				07CE3A12158D6C55003EC791 /* icon_home.png in Resources */,
+				07CE3A13158D6C55003EC791 /* icon_settings.png in Resources */,
+				07CE3A15158D6FD4003EC791 /* 120615-arrows.png in Resources */,
+				07DF164B158DB66F0060BF5A /* 120616-clockIcon57x57.png in Resources */,
+				07DF164E158DB6750060BF5A /* 120616-clockIcon114x114.png in Resources */,
+				07DF1650158DB6850060BF5A /* Default.png in Resources */,
+				07DF1652158DB6880060BF5A /* Default@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07B28A16158D65B800E46615 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07B28A2B158D65B900E46615 /* main.m in Sources */,
+				07B28A2F158D65B900E46615 /* AEAppDelegate.m in Sources */,
+				07B28A35158D65B900E46615 /* AEViewController.m in Sources */,
+				07CE3A0C158D6AD0003EC791 /* AESettingViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		07B28A27158D65B900E46615 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07B28A28158D65B900E46615 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		07B28A30158D65B900E46615 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07B28A31158D65B900E46615 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		07B28A36158D65B900E46615 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		07B28A37158D65B900E46615 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		07B28A39158D65B900E46615 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AutoEver/AutoEver-Prefix.pch";
+				INFOPLIST_FILE = "AutoEver/AutoEver-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		07B28A3A158D65B900E46615 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AutoEver/AutoEver-Prefix.pch";
+				INFOPLIST_FILE = "AutoEver/AutoEver-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		07B28A14158D65B800E46615 /* Build configuration list for PBXProject "AutoEver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07B28A36158D65B900E46615 /* Debug */,
+				07B28A37158D65B900E46615 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07B28A38158D65B900E46615 /* Build configuration list for PBXNativeTarget "AutoEver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07B28A39158D65B900E46615 /* Debug */,
+				07B28A3A158D65B900E46615 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 07B28A11158D65B800E46615 /* Project object */;
+}
