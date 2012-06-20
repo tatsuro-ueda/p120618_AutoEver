@@ -201,7 +201,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="817" y="76"/>
+            <point key="canvasLocation" x="833" y="79"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Uwj-Wt-fwm">
@@ -293,7 +293,7 @@
                     </view>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1477" y="70"/>
+            <point key="canvasLocation" x="1477" y="79"/>
         </scene>
     </scenes>
     <resources>
@@ -302,12 +302,32 @@
         <image name="icon_home.png" width="30" height="30"/>
         <image name="icon_settings.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="AESettingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AESettingViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="homepage" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userId" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="AEViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AEViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="goToHomepage:"/>
+                <relationship kind="action" name="toggleSwitchIsClipping:"/>
+                <relationship kind="action" name="urlCheck:"/>
+                <relationship kind="outlet" name="message" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="switchIsClipping" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="webViewBack" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="webViewFore" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="4Jr-wV-fkJ"/>
-    </inferredMetricsTieBreakers>
 </document>
