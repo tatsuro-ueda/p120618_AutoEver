@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AEViewController : UIViewController
+@interface AEMainViewController : UIViewController
 {
     NSURL* urlHomepage;
     UIAlertView* alertClipping;
@@ -22,7 +22,7 @@
 @property (strong, nonatomic) IBOutlet UIWebView *webViewFore;
 @property (strong, nonatomic) IBOutlet UISwitch *switchIsClipping;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *actIndicator;
-@property (strong, nonatomic) IBOutlet UIButton *actIndicatorBack;
+@property (strong, nonatomic) IBOutlet UIView *actIndicatorBack;
 
 - (void)webViewDidFinishLoad2:(UIWebView *)sender;
 - (void)check;

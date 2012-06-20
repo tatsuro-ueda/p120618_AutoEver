@@ -6,16 +6,16 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "AEViewController.h"
+#import "AEMainViewController.h"
 #import "AEConst.h"
 
-@interface AEViewController ()
+@interface AEMainViewController ()
 
 @end
 
 float const floatDelaySeconds = 5.0;
 
-@implementation AEViewController
+@implementation AEMainViewController
 @synthesize searchBar;
 @synthesize webViewBack;
 @synthesize webViewFore;
@@ -200,13 +200,6 @@ float const floatDelaySeconds = 5.0;
      [NSURLRequest requestWithURL:
       [NSURL URLWithString:strUrl]]];
     
-    // Evernoteログインページであればbreakする
-    if ([self isContainString:@"https://www.evernote.com/Home.action?" 
-                      withUrl:webViewBack.request.URL]) {
-        NSLog(@"Stop clipping Evernote login page.");
-        return;
-    }
-         
     // 「Clip success」のメッセージを表示する
     alertClipped =
     [[UIAlertView alloc] initWithTitle:@"Clip" message:@""
@@ -226,6 +219,13 @@ float const floatDelaySeconds = 5.0;
 }
 
 - (void)clip {
+    
+    // Evernoteログインページであればbreakする
+    if ([self isContainString:@"https://www.evernote.com/Home.action?" 
+                      withUrl:webViewBack.request.URL]) {
+        NSLog(@"Stop clipping Evernote login page.");
+        return;
+    }
     
     // 裏のWebViewでクリップのJavaScriptを実行する
     [webViewBack stringByEvaluatingJavaScriptFromString:
