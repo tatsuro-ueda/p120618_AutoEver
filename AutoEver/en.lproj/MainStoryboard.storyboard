@@ -31,19 +31,12 @@
                             </webView>
                             <webView contentMode="scaleToFill" id="tPy-J5-ZgU">
                                 <rect key="frame" x="0.0" y="44" width="320" height="372"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="xGh-JZ-CnA"/>
                                 </connections>
                             </webView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="sMQ-n8-5xA">
-                                <rect key="frame" x="20" y="219" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="KnH-Lc-Nt6">
                                 <rect key="frame" x="0.0" y="416" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -84,11 +77,28 @@
                                 </items>
                                 <color key="tintColor" red="0.43921568630000002" green="0.73725490199999999" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ewj-uL-P2M">
+                                <rect key="frame" x="135" y="205" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="N7V-KU-x1i">
+                                <rect key="frame" x="150" y="220" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="message" destination="sMQ-n8-5xA" id="J4F-Pk-Rf1"/>
+                        <outlet property="actIndicator" destination="N7V-KU-x1i" id="SMJ-d8-G2R"/>
+                        <outlet property="actIndicatorBack" destination="Ewj-uL-P2M" id="Ilx-UX-EMM"/>
                         <outlet property="searchBar" destination="zK8-v2-qCW" id="vL0-zw-kLz"/>
                         <outlet property="switchIsClipping" destination="xHn-dv-Rkb" id="uvp-RD-DaT"/>
                         <outlet property="webViewBack" destination="bed-oC-PfD" id="Pwo-me-ReF"/>
@@ -317,7 +327,8 @@
                 <relationship kind="action" name="goToHomepage:"/>
                 <relationship kind="action" name="toggleSwitchIsClipping:"/>
                 <relationship kind="action" name="urlCheck:"/>
-                <relationship kind="outlet" name="message" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="actIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="actIndicatorBack" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
                 <relationship kind="outlet" name="switchIsClipping" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="webViewBack" candidateClass="UIWebView"/>
@@ -330,4 +341,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="4Jr-wV-fkJ"/>
+    </inferredMetricsTieBreakers>
 </document>

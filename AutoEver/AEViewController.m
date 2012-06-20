@@ -7,21 +7,21 @@
 //
 
 #import "AEViewController.h"
+#import "AEConst.h"
 
 @interface AEViewController ()
 
 @end
 
-NSString* const Ever5secIsSecondOrLaterLaunch = @"Ever5secIsSecondOrLaterLaunch";
-NSString* const Ever5secIsClippingPrefKey = @"Ever5secIsClippingPrefKey";
-float const floatDelaySeconds = 20.0;
+float const floatDelaySeconds = 5.0;
 
 @implementation AEViewController
 @synthesize searchBar;
 @synthesize webViewBack;
 @synthesize webViewFore;
-@synthesize message;
 @synthesize switchIsClipping;
+@synthesize actIndicator;
+@synthesize actIndicatorBack;
 
 - (void)viewDidLoad
 {
@@ -30,10 +30,10 @@ float const floatDelaySeconds = 20.0;
     
     // 起動時のみバックグラウンドでEvernoteにログイン
     if ([[NSUserDefaults standardUserDefaults] 
-         boolForKey:@"Ever5secIsJustLaunchedPrefKey"] == YES) {
+         boolForKey:Ever5secIsJustLaunchedPrefKey] == YES) {
         [self prepareSignInWithWebView:webViewBack];
         [[NSUserDefaults standardUserDefaults] 
-         setBool:NO forKey:@"Ever5secIsJustLaunchedPrefKey"];
+         setBool:NO forKey:Ever5secIsJustLaunchedPrefKey];
     }
     
     // ホームページへジャンプ
@@ -44,7 +44,7 @@ float const floatDelaySeconds = 20.0;
         UIAlertView* alertFirstTime =
         [[UIAlertView alloc] 
          initWithTitle:@"Notice" 
-         message:@"At first, please input the Evernote account setting."
+         message:@"At first, please input the Evernote account information in Setting page (Gear icon)."
          delegate:self cancelButtonTitle:@"confirm" otherButtonTitles:nil];
         [alertFirstTime show];
         
@@ -52,7 +52,7 @@ float const floatDelaySeconds = 20.0;
     }
     
     // 自動クリップ抑制を解除する
-    isClipping = NO;
+    isBlockingAutoClip = NO;
     
     // 自動クリップのスイッチの状態を読み出す
     switchIsClipping.on = [[NSUserDefaults standardUserDefaults]
@@ -64,8 +64,9 @@ float const floatDelaySeconds = 20.0;
     [self setWebViewBack:nil];
     [self setSearchBar:nil];
     [self setWebViewFore:nil];
-    [self setMessage:nil];
     [self setSwitchIsClipping:nil];
+    [self setActIndicator:nil];
+    [self setActIndicatorBack:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -80,111 +81,115 @@ float const floatDelaySeconds = 20.0;
 - (void)webViewDidFinishLoad:(UIWebView *)sender{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [searchBar setText:[webViewFore.request.URL description]];
-    //message.text = @"## Loaded ##";
+    [actIndicator stopAnimating];
+    actIndicatorBack.hidden = YES ;
     
     // 自動クリップがオンになっている、かつ、クリップ中ではない
-    if (switchIsClipping.on == YES && isClipping == NO) {
-        currentUrl = webViewFore.request.URL;
+    if (switchIsClipping.on == YES && isBlockingAutoClip == NO) {
+        urlAutoClipDidStart = webViewFore.request.URL;
         
         // クリップ中である。このあいだは自動クリップは行われない。
-        isClipping = YES;
+        isBlockingAutoClip = YES;
         NSLog(@"Automatic clip started.");
-        //[self performSelector:@selector(check) withObject:nil afterDelay:floatDelaySeconds];
         [self performSelector:@selector(check) withObject:nil];
     }
 }
 
+// 自動クリップが終了したら呼び出される。ループになっている。
 - (void)webViewDidFinishLoad2:(UIWebView *)sender{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [searchBar setText:[webViewFore.request.URL description]];
-    //message.text = @"## Loaded ##";
     
     // 自動クリップがオンになっている、かつ、クリップ中ではない
-    //if (switchIsClipping.on == YES && isClipping == NO) {
-    if (switchIsClipping.on == YES && isClipping == NO) {
-        currentUrl = webViewFore.request.URL;
+    if (switchIsClipping.on == YES && isBlockingAutoClip == NO) {
+        urlAutoClipDidStart = webViewFore.request.URL;
         
         // クリップ中である。このあいだは自動クリップは行われない。
-        isClipping = YES;
+        isBlockingAutoClip = YES;
         NSLog(@"Automatic clip started.");
-        //[self performSelector:@selector(check) withObject:nil afterDelay:floatDelaySeconds];
         [self performSelector:@selector(check) withObject:nil];
     }
 }
 
 - (void)check {
-    // URLがgoogleを含んでいるかチェックする
-    NSLog(@"google checking...");
-    NSString* urlString = [webViewFore.request.URL description];
-    NSRange match = [urlString rangeOfString:@"google"];
-    
-    // 含む場合は何もしない
-    if (match.location != NSNotFound) {
-        NSLog(@"URL contains google");
-        // URLがgwtのものかチェックする
-        NSString* strUrl = [webViewFore.request.URL description];
-        NSRange match = [strUrl rangeOfString:@"http://www.google.com/gwt/x?source=reader&u=http%3A%2F%2F"];
-        
-        // 例外：gwtのものの場合1ページ目かどうかをチェックする
-        if (match.location != NSNotFound) {
-            NSLog(@"URL contains gwt");
-            match = [strUrl rangeOfString:@"&wsi="];
+    // 自動クリップは移動したら行われない。クリップしたURLを再度クリップすることもない。
+    NSLog(@"webViewFore.request.URL = \n%@", webViewFore.request.URL);
+    NSLog(@"urlAutoClipDidStart = \n%@", urlAutoClipDidStart);
+    NSLog(@"urlAlreadyClipped = \n%@", urlAlreadyClipped);
+    NSLog(@"checking current URL...");
+    if ([webViewFore.request.URL isEqual:urlAutoClipDidStart] && 
+        !([webViewFore.request.URL isEqual: urlAlreadyClipped])) {
+
+        // URLがgoogleを含んでいるかチェックする
+        if ([self isContainString:@"google" withUrl:webViewFore.request.URL]) {
+            // URLがgwtのものかチェックする
+            NSString* strUrl = [webViewFore.request.URL description];
+            NSRange match = [strUrl rangeOfString:@"http://www.google.com/gwt/x?source=reader&u=http%3A%2F%2F"];
+            
+            // 例外：gwtのものの場合1ページ目かどうかをチェックする
             if (match.location != NSNotFound) {
-                NSLog(@"URL contains &wsi");
-                isClipping = NO;
+                NSLog(@"URL contains gwt");
+                match = [strUrl rangeOfString:@"&wsi="];
+                if (match.location != NSNotFound) {
+                    NSLog(@"URL contains &wsi");
+                    isBlockingAutoClip = NO;
+                } else {
+                    NSLog(@"URL OK");
+                    [self performSelector:@selector(urlCheck:) withObject:nil afterDelay:floatDelaySeconds];
+                }
             } else {
-                NSLog(@"URL OK");
-                //[self urlCheck:nil];
-                [self performSelector:@selector(urlCheck:) withObject:nil afterDelay:floatDelaySeconds];
+                NSLog(@"Clip process ended.");
+                isBlockingAutoClip = NO;
+                [self prepareSignInWithWebView:webViewBack];
             }
-        } else {
-            NSLog(@"Clip process ended.");
-            isClipping = NO;
-            [self prepareSignInWithWebView:webViewBack];
+        }
+        else {
+            // 含まない場合は、即時クリップを行う
+            [self performSelector:@selector(urlCheck:) withObject:nil afterDelay:floatDelaySeconds];
         }
     } else {
-        
-        // 含まない場合は、即時クリップを行う
-        //[self urlCheck:nil];
-        [self performSelector:@selector(urlCheck:) withObject:nil afterDelay:floatDelaySeconds];
+        isBlockingAutoClip = NO;
+        NSLog(@"You moved or already clipped URL");
+        [self performSelector:@selector(webViewDidFinishLoad2:) withObject:self];
     }
+}
+
+// URLがstringを含んでいるかチェックする
+- (BOOL)isContainString:(NSString*)string withUrl:(NSURL*)url
+{
+    NSLog(@"Checking URL contains %@...", string);
+    NSString* urlString = [url description];
+    NSRange match = [urlString rangeOfString:string];
+    
+    if (match.location != NSNotFound) {
+        NSLog(@"URL contains %@", string);
+        return YES;
+    }
+    else {
+        return NO;
+    }
+    
 }
 
 - (IBAction)urlCheck:(id)sender;
 {
-    // 自動クリップは移動したら行われない。クリップしたURLを再度クリップすることもない。
-    NSLog(@"webViewFore.request.URL = \n%@", webViewFore.request.URL);
-    NSLog(@"currentUrl = \n%@", currentUrl);
-    NSLog(@"clippedUrl = \n%@", clippedUrl);
-    NSLog(@"checking current URL...");
-    if (webViewFore.request.URL == currentUrl && !([[webViewFore.request.URL description] isEqualToString: [clippedUrl description]])) {
         
-        // URLがgwtのものかチェックする
-        NSString* strUrl = [webViewFore.request.URL description];
-        NSRange match = [strUrl rangeOfString:@"http://www.google.com/gwt/x?source=reader&u=http%3A%2F%2F"];
+    // URLがgwtのものかチェックする
+    NSString* strUrl = [webViewFore.request.URL description];
+    NSRange match = [strUrl rangeOfString:@"http://www.google.com/gwt/x?source=reader&u=http%3A%2F%2F"];
+    
+    // gwtのものの場合は置換する
+    if (match.location != NSNotFound) {
+        NSLog(@"URL contains gwt");
         
-        // gwtのものの場合は置換する
-        if (match.location != NSNotFound) {
-            NSLog(@"URL contains gwt");
-            
-            strUrl = [self stringBeDeletedGwtUrlFromString:strUrl];
-            
-            strUrl = [strUrl stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];            
-                        
-            /*replaced = [self processEscapeString:@"%3A" withPattern:@"(.*)%3A(.*)" inString:replaced];
-            replaced = [self processEscapeString:@"%2F" withPattern:@"(.*)%2F(.*)" inString:replaced];
-            replaced = [self processEscapeString:@"%3F" withPattern:@"(.*)%3F(.*)" inString:replaced];
-            replaced = [self processEscapeString:@"%26" withPattern:@"(.*)%26(.*)" inString:replaced];*/
-            
-            NSLog(@"strUrl = %@", strUrl);
-        }
+        strUrl = [self stringBeDeletedGwtUrlFromString:strUrl];
         
-        [self send:strUrl];
-    } else {
-        isClipping = NO;
-        NSLog(@"You moved or already clipped URL");
-        [self performSelector:@selector(webViewDidFinishLoad2:) withObject:self];
+        strUrl = [strUrl stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];            
+        
+        NSLog(@"strUrl = %@", strUrl);
     }
+    
+    [self send:strUrl];
 }
 
 // 即時クリップのボタンを押すと実行される
@@ -195,6 +200,13 @@ float const floatDelaySeconds = 20.0;
      [NSURLRequest requestWithURL:
       [NSURL URLWithString:strUrl]]];
     
+    // Evernoteログインページであればbreakする
+    if ([self isContainString:@"https://www.evernote.com/Home.action?" 
+                      withUrl:webViewBack.request.URL]) {
+        NSLog(@"Stop clipping Evernote login page.");
+        return;
+    }
+         
     // 「Clip success」のメッセージを表示する
     alertClipped =
     [[UIAlertView alloc] initWithTitle:@"Clip" message:@""
@@ -209,7 +221,7 @@ float const floatDelaySeconds = 20.0;
     [alertClipped dismissWithClickedButtonIndex:0 animated:NO];
     
     // 自動クリップ抑制を解除する
-    isClipping = NO;
+    isBlockingAutoClip = NO;
     [self performSelector:@selector(clip) withObject:nil afterDelay:5.0];
 }
 
@@ -218,8 +230,10 @@ float const floatDelaySeconds = 20.0;
     // 裏のWebViewでクリップのJavaScriptを実行する
     [webViewBack stringByEvaluatingJavaScriptFromString:
      @"window.location='http://s.Evernote.com/grclip?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title)"];
-    NSLog(@"Clipped\n");
-    clippedUrl = webViewBack.request.URL;
+    NSLog(@"Clipped: %@", webViewBack.request.URL);
+    
+    // 同じページを繰り返しクリップしないようにする
+    urlAlreadyClipped = webViewBack.request.URL;
 }
 
 #pragma mark - other processes
@@ -237,9 +251,9 @@ float const floatDelaySeconds = 20.0;
     
     // 設定を読み出す
     NSString* userId = [[NSUserDefaults standardUserDefaults] 
-                        objectForKey:@"Ever5secUserIdPrefKey"];
+                        objectForKey:Ever5secUserIdPrefKey];
     NSString* password = [[NSUserDefaults standardUserDefaults] 
-                          objectForKey:@"Ever5secPasswordPrefKey"];
+                          objectForKey:Ever5secPasswordPrefKey];
 
     if (userId != nil && password != nil) {
         NSString* script = [@"javascript:document.login_form.username.value='" 
@@ -258,7 +272,7 @@ float const floatDelaySeconds = 20.0;
 
 - (IBAction)goToHomepage:(id)sender {
     urlHomepage = [[NSUserDefaults standardUserDefaults]
-                   URLForKey:@"Ever5secHomepagePrefKey"];
+                   URLForKey:Ever5secHomepagePrefKey];
     if (urlHomepage == nil) {
         urlHomepage = [NSURL URLWithString:@"http://www.google.com"];
     }
@@ -283,6 +297,8 @@ float const floatDelaySeconds = 20.0;
 - (void)webViewDidStartLoad:(UIWebView *)sender{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [searchBar setText:[webViewFore.request.URL description]];
+    [actIndicator startAnimating];
+    actIndicatorBack.hidden = NO ;
 }
 
 - (NSString*)stringBeDeletedGwtUrlFromString:(NSString*)strUrl{

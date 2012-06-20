@@ -13,4 +13,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *userId;
 @property (strong, nonatomic) IBOutlet UITextField *password;
 
+- (void)textFieldDidEndEditing:(UITextField *)sender;
+- (void)textFieldShouldReturn:(UITextField *)sender;
+
 @end

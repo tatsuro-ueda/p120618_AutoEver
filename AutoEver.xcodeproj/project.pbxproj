@@ -24,6 +24,7 @@
 		07DF164E158DB6750060BF5A /* 120616-clockIcon114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DF164D158DB6750060BF5A /* 120616-clockIcon114x114.png */; };
 		07DF1650158DB6850060BF5A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DF164F158DB6850060BF5A /* Default.png */; };
 		07DF1652158DB6880060BF5A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DF1651158DB6880060BF5A /* Default@2x.png */; };
+		07F649D11591A3B000B133AD /* AEConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F649D01591A3B000B133AD /* AEConst.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		07DF164D158DB6750060BF5A /* 120616-clockIcon114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120616-clockIcon114x114.png"; sourceTree = "<group>"; };
 		07DF164F158DB6850060BF5A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		07DF1651158DB6880060BF5A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		07F649CF1591A3B000B133AD /* AEConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEConst.h; sourceTree = "<group>"; };
+		07F649D01591A3B000B133AD /* AEConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEConst.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 				07B28A30158D65B900E46615 /* MainStoryboard.storyboard */,
 				07B28A33158D65B900E46615 /* AEViewController.h */,
 				07B28A34158D65B900E46615 /* AEViewController.m */,
+				07F649CF1591A3B000B133AD /* AEConst.h */,
+				07F649D01591A3B000B133AD /* AEConst.m */,
 				07CE3A0A158D6AD0003EC791 /* AESettingViewController.h */,
 				07CE3A0B158D6AD0003EC791 /* AESettingViewController.m */,
 				07B28A25158D65B900E46615 /* Supporting Files */,
@@ -202,6 +207,7 @@
 				07B28A2F158D65B900E46615 /* AEAppDelegate.m in Sources */,
 				07B28A35158D65B900E46615 /* AEViewController.m in Sources */,
 				07CE3A0C158D6AD0003EC791 /* AESettingViewController.m in Sources */,
+				07F649D11591A3B000B133AD /* AEConst.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

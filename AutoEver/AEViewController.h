@@ -13,18 +13,20 @@
     NSURL* urlHomepage;
     UIAlertView* alertClipping;
     UIAlertView* alertClipped;
-    Boolean isClipping;
-    NSURL* currentUrl;
-    NSURL* clippedUrl;
+    BOOL isBlockingAutoClip;
+    NSURL* urlAutoClipDidStart;
+    NSURL* urlAlreadyClipped;
 }
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet UIWebView *webViewBack;
 @property (strong, nonatomic) IBOutlet UIWebView *webViewFore;
-@property (strong, nonatomic) IBOutlet UILabel *message;
 @property (strong, nonatomic) IBOutlet UISwitch *switchIsClipping;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *actIndicator;
+@property (strong, nonatomic) IBOutlet UIButton *actIndicatorBack;
 
 - (void)webViewDidFinishLoad2:(UIWebView *)sender;
 - (void)check;
+- (BOOL)isContainString:(NSString*)string withUrl:(NSURL*)url;
 - (IBAction)urlCheck:(id)sender;
 - (void)send:(NSString*)strUrl;
 - (void)messageClear;

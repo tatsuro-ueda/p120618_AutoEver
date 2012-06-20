@@ -7,6 +7,7 @@
 //
 
 #import "AESettingViewController.h"
+#import "AEConst.h"
 
 @interface AESettingViewController ()
 
@@ -31,12 +32,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     userId.text = [[NSUserDefaults standardUserDefaults]
-                   objectForKey:@"Ever5secUserIdPrefKey"];
+                   objectForKey:Ever5secUserIdPrefKey];
     password.text = [[NSUserDefaults standardUserDefaults]
-                     objectForKey:@"Ever5secPasswordPrefKey"];
+                     objectForKey:Ever5secPasswordPrefKey];
     password.secureTextEntry = YES;
     homepage.text = [[[NSUserDefaults standardUserDefaults]
-                      URLForKey:@"Ever5secHomepagePrefKey"]
+                      URLForKey:Ever5secHomepagePrefKey]
                      description];
 }
 
@@ -58,21 +59,21 @@
 {
     if (sender == homepage) {
         [[NSUserDefaults standardUserDefaults]
-         setURL:[NSURL URLWithString:homepage.text] forKey:@"Ever5secHomepagePrefKey"];
+         setURL:[NSURL URLWithString:homepage.text] forKey:Ever5secHomepagePrefKey];
         if( [homepage canResignFirstResponder] ) {
             [homepage resignFirstResponder];   
         }
     } else if (sender == userId) {
         [[NSUserDefaults standardUserDefaults]
-         setObject:userId.text forKey:@"Ever5secUserIdPrefKey"];
-        NSLog(@"userId.text = %@\n", userId.text);
-        NSLog(@"%@\n", [[NSUserDefaults standardUserDefaults] objectForKey:@"Ever5secUserIdPrefKey"]);
+         setObject:userId.text forKey:Ever5secUserIdPrefKey];
+        NSLog(@"userId.text = %@", userId.text);
+        NSLog(@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:Ever5secUserIdPrefKey]);
         if( [userId canResignFirstResponder] ) {
             [userId resignFirstResponder];   
         }
     } else if (sender == password) {
         [[NSUserDefaults standardUserDefaults]
-         setObject:password.text forKey:@"Ever5secPasswordPrefKey"];
+         setObject:password.text forKey:Ever5secPasswordPrefKey];
         if( [password canResignFirstResponder] ) {
             [password resignFirstResponder];   
         }
@@ -83,21 +84,21 @@
 {
     if (sender == homepage) {
         [[NSUserDefaults standardUserDefaults]
-         setURL:[NSURL URLWithString:homepage.text] forKey:@"Ever5secHomepagePrefKey"];
+         setURL:[NSURL URLWithString:homepage.text] forKey:Ever5secHomepagePrefKey];
         if( [homepage canResignFirstResponder] ) {
             [homepage resignFirstResponder];   
         }
     } else if (sender == userId) {
         [[NSUserDefaults standardUserDefaults]
-         setObject:userId.text forKey:@"Ever5secUserIdPrefKey"];
+         setObject:userId.text forKey:Ever5secUserIdPrefKey];
         NSLog(@"userId.text = %@\n", userId.text);
-        NSLog(@"%@\n", [[NSUserDefaults standardUserDefaults] objectForKey:@"Ever5secUserIdPrefKey"]);
+        NSLog(@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:Ever5secUserIdPrefKey]);
         if( [userId canResignFirstResponder] ) {
             [userId resignFirstResponder];   
         }
     } else if (sender == password) {
         [[NSUserDefaults standardUserDefaults]
-         setObject:password.text forKey:@"Ever5secPasswordPrefKey"];
+         setObject:password.text forKey:Ever5secPasswordPrefKey];
         if( [password canResignFirstResponder] ) {
             [password resignFirstResponder];   
         }
