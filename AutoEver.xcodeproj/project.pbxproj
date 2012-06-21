@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07611709159285A900FA7A39 /* AEWebViewBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 07611708159285A900FA7A39 /* AEWebViewBack.m */; };
 		07B28A1F158D65B900E46615 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B28A1E158D65B900E46615 /* UIKit.framework */; };
 		07B28A21158D65B900E46615 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B28A20158D65B900E46615 /* Foundation.framework */; };
 		07B28A23158D65B900E46615 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B28A22158D65B900E46615 /* CoreGraphics.framework */; };
@@ -28,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07611707159285A900FA7A39 /* AEWebViewBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEWebViewBack.h; sourceTree = "<group>"; };
+		07611708159285A900FA7A39 /* AEWebViewBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEWebViewBack.m; sourceTree = "<group>"; };
 		07B28A1A158D65B900E46615 /* AutoEver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoEver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B28A1E158D65B900E46615 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		07B28A20158D65B900E46615 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -112,6 +115,8 @@
 				07B28A30158D65B900E46615 /* MainStoryboard.storyboard */,
 				07B28A33158D65B900E46615 /* AEMainViewController.h */,
 				07B28A34158D65B900E46615 /* AEMainViewController.m */,
+				07611707159285A900FA7A39 /* AEWebViewBack.h */,
+				07611708159285A900FA7A39 /* AEWebViewBack.m */,
 				07F649CF1591A3B000B133AD /* AEConst.h */,
 				07F649D01591A3B000B133AD /* AEConst.m */,
 				07CE3A0A158D6AD0003EC791 /* AESettingViewController.h */,
@@ -208,6 +213,7 @@
 				07B28A35158D65B900E46615 /* AEMainViewController.m in Sources */,
 				07CE3A0C158D6AD0003EC791 /* AESettingViewController.m in Sources */,
 				07F649D11591A3B000B133AD /* AEConst.m in Sources */,
+				07611709159285A900FA7A39 /* AEWebViewBack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

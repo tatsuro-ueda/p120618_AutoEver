@@ -8,6 +8,7 @@
 
 #import "AEMainViewController.h"
 #import "AEConst.h"
+#import "AEWebViewBack.h"
 
 @interface AEMainViewController ()
 
@@ -22,6 +23,8 @@ float const floatDelaySeconds = 5.0;
 @synthesize switchIsClipping;
 @synthesize actIndicator;
 @synthesize actIndicatorBack;
+@synthesize blockingAutoClip;
+@synthesize urlAlreadyClipped;
 
 - (void)viewDidLoad
 {
@@ -31,7 +34,7 @@ float const floatDelaySeconds = 5.0;
     // 起動時のみバックグラウンドでEvernoteにログイン
     if ([[NSUserDefaults standardUserDefaults] 
          boolForKey:Ever5secIsJustLaunchedPrefKey] == YES) {
-        [self prepareSignInWithWebView:webViewBack];
+        [webViewBack prepareSignIn];
         [[NSUserDefaults standardUserDefaults] 
          setBool:NO forKey:Ever5secIsJustLaunchedPrefKey];
     }
@@ -52,7 +55,7 @@ float const floatDelaySeconds = 5.0;
     }
     
     // 自動クリップ抑制を解除する
-    isBlockingAutoClip = NO;
+    blockingAutoClip = NO;
     
     // 自動クリップのスイッチの状態を読み出す
     switchIsClipping.on = [[NSUserDefaults standardUserDefaults]
@@ -82,14 +85,14 @@ float const floatDelaySeconds = 5.0;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [searchBar setText:[webViewFore.request.URL description]];
     [actIndicator stopAnimating];
-    actIndicatorBack.hidden = YES ;
+    actIndicatorBack.hidden = YES;
     
     // 自動クリップがオンになっている、かつ、クリップ中ではない
-    if (switchIsClipping.on == YES && isBlockingAutoClip == NO) {
+    if (switchIsClipping.on == YES && blockingAutoClip == NO) {
         urlAutoClipDidStart = webViewFore.request.URL;
         
         // クリップ中である。このあいだは自動クリップは行われない。
-        isBlockingAutoClip = YES;
+        blockingAutoClip = YES;
         NSLog(@"Automatic clip started.");
         [self performSelector:@selector(check) withObject:nil];
     }
@@ -101,11 +104,11 @@ float const floatDelaySeconds = 5.0;
     [searchBar setText:[webViewFore.request.URL description]];
     
     // 自動クリップがオンになっている、かつ、クリップ中ではない
-    if (switchIsClipping.on == YES && isBlockingAutoClip == NO) {
+    if (switchIsClipping.on == YES && blockingAutoClip == NO) {
         urlAutoClipDidStart = webViewFore.request.URL;
         
         // クリップ中である。このあいだは自動クリップは行われない。
-        isBlockingAutoClip = YES;
+        blockingAutoClip = YES;
         NSLog(@"Automatic clip started.");
         [self performSelector:@selector(check) withObject:nil];
     }
@@ -121,26 +124,28 @@ float const floatDelaySeconds = 5.0;
         !([webViewFore.request.URL isEqual: urlAlreadyClipped])) {
 
         // URLがgoogleを含んでいるかチェックする
-        if ([self isContainString:@"google" withUrl:webViewFore.request.URL]) {
-            // URLがgwtのものかチェックする
-            NSString* strUrl = [webViewFore.request.URL description];
-            NSRange match = [strUrl rangeOfString:@"http://www.google.com/gwt/x?source=reader&u=http%3A%2F%2F"];
+        if ([self URLContainString:@"google" withUrl:webViewFore.request.URL]) {
             
-            // 例外：gwtのものの場合1ページ目かどうかをチェックする
-            if (match.location != NSNotFound) {
+            // URLがgwtのものかチェックする
+            if ([self URLContainString:@"http://www.google.com/gwt/x?source=reader&u=http%3A%2F%2F" withUrl:webViewFore.request.URL]) {
                 NSLog(@"URL contains gwt");
-                match = [strUrl rangeOfString:@"&wsi="];
-                if (match.location != NSNotFound) {
+
+                // gwtのものの場合
+                if ([self URLContainString:@"&wsi=" withUrl:webViewFore.request.URL]) {
+
+                    // 2ページ以降であれば何もしない
                     NSLog(@"URL contains &wsi");
-                    isBlockingAutoClip = NO;
+                    blockingAutoClip = NO;
                 } else {
+                    
+                    // 1ページ目であればクリップする
                     NSLog(@"URL OK");
                     [self performSelector:@selector(urlCheck:) withObject:nil afterDelay:floatDelaySeconds];
                 }
             } else {
                 NSLog(@"Clip process ended.");
-                isBlockingAutoClip = NO;
-                [self prepareSignInWithWebView:webViewBack];
+                blockingAutoClip = NO;
+                [webViewBack prepareSignIn];
             }
         }
         else {
@@ -148,14 +153,14 @@ float const floatDelaySeconds = 5.0;
             [self performSelector:@selector(urlCheck:) withObject:nil afterDelay:floatDelaySeconds];
         }
     } else {
-        isBlockingAutoClip = NO;
         NSLog(@"You moved or already clipped URL");
+        blockingAutoClip = NO;
         [self performSelector:@selector(webViewDidFinishLoad2:) withObject:self];
     }
 }
 
 // URLがstringを含んでいるかチェックする
-- (BOOL)isContainString:(NSString*)string withUrl:(NSURL*)url
+- (BOOL)URLContainString:(NSString*)string withUrl:(NSURL*)url
 {
     NSLog(@"Checking URL contains %@...", string);
     NSString* urlString = [url description];
@@ -168,107 +173,37 @@ float const floatDelaySeconds = 5.0;
     else {
         return NO;
     }
-    
 }
 
 - (IBAction)urlCheck:(id)sender;
 {
-        
+    NSURL* url = webViewFore.request.URL;
     // URLがgwtのものかチェックする
-    NSString* strUrl = [webViewFore.request.URL description];
-    NSRange match = [strUrl rangeOfString:@"http://www.google.com/gwt/x?source=reader&u=http%3A%2F%2F"];
-    
-    // gwtのものの場合は置換する
-    if (match.location != NSNotFound) {
+    if ([self URLContainString:@"http://www.google.com/gwt/x?source=reader&u=http%3A%2F%2F" 
+                       withUrl:webViewFore.request.URL]) {
+        
+        // gwtのものの場合は置換する
+        NSString* strUrl = [url description];
         NSLog(@"URL contains gwt");
-        
         strUrl = [self stringBeDeletedGwtUrlFromString:strUrl];
-        
         strUrl = [strUrl stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];            
-        
         NSLog(@"strUrl = %@", strUrl);
+        url = [NSURL URLWithString:strUrl];
     }
-    
-    [self send:strUrl];
-}
 
-// 即時クリップのボタンを押すと実行される
-- (void)send:(NSString*)strUrl;
-{
-    // 表のWebViewのページを裏のWebViewで呼び出す
-    [webViewBack loadRequest:
-     [NSURLRequest requestWithURL:
-      [NSURL URLWithString:strUrl]]];
-    
-    // 「Clip success」のメッセージを表示する
-    alertClipped =
-    [[UIAlertView alloc] initWithTitle:@"Clip" message:@""
-                              delegate:self cancelButtonTitle:@"success" otherButtonTitles:nil];
-    [alertClipped show];
-    
-    // 0.3秒後にメッセージを消す
-    [self performSelector:@selector(messageClear) withObject:nil afterDelay:0.3];
-}
-
-- (void)messageClear {
-    [alertClipped dismissWithClickedButtonIndex:0 animated:NO];
-    
-    // 自動クリップ抑制を解除する
-    isBlockingAutoClip = NO;
-    [self performSelector:@selector(clip) withObject:nil afterDelay:5.0];
-}
-
-- (void)clip {
-    
-    // Evernoteログインページであればbreakする
-    if ([self isContainString:@"https://www.evernote.com/Home.action?" 
-                      withUrl:webViewBack.request.URL]) {
-        NSLog(@"Stop clipping Evernote login page.");
-        return;
+    // 任意クリップが行われたら自動クリップを止める
+    NSLog(@"urlCheck");
+    NSLog(@"url = \n%@", url);
+    NSLog(@"urlAlreadyClipped = \n%@", urlAlreadyClipped);
+    if([url isEqual:urlAlreadyClipped]) {
+        blockingAutoClip = NO;
     }
-    
-    // 裏のWebViewでクリップのJavaScriptを実行する
-    [webViewBack stringByEvaluatingJavaScriptFromString:
-     @"window.location='http://s.Evernote.com/grclip?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title)"];
-    NSLog(@"Clipped: %@", webViewBack.request.URL);
-    
-    // 同じページを繰り返しクリップしないようにする
-    urlAlreadyClipped = webViewBack.request.URL;
+    else {
+        [webViewBack sendURL:url withSender:self];
+    }
 }
 
 #pragma mark - other processes
-
-- (void)prepareSignInWithWebView:(UIWebView*)webView {
-    NSLog(@"Sign in page loading...");
-    [webView loadRequest:
-     [NSURLRequest requestWithURL:
-      [NSURL URLWithString:@"http://www.evernote.com/Home.action"]]];
-    
-    [self performSelector:@selector(signIn:) withObject:webView afterDelay:8.0];
-}
-
-- (void)signIn:(id)sender {
-    
-    // 設定を読み出す
-    NSString* userId = [[NSUserDefaults standardUserDefaults] 
-                        objectForKey:Ever5secUserIdPrefKey];
-    NSString* password = [[NSUserDefaults standardUserDefaults] 
-                          objectForKey:Ever5secPasswordPrefKey];
-
-    if (userId != nil && password != nil) {
-        NSString* script = [@"javascript:document.login_form.username.value='" 
-                            stringByAppendingString:userId];
-        
-        // JaveScriptを生成する
-        script = [script stringByAppendingString:@"';document.login_form.password.value='"];
-        script = [script stringByAppendingString:password];
-        script = [script stringByAppendingString:@"';document.login_form.login.click();"];
-        //NSLog(@"userID: %@, script: %@", userId, script);
-        
-        [sender stringByEvaluatingJavaScriptFromString:script];
-        NSLog(@"Sign in JavaScript was performed.");
-    }
-}
 
 - (IBAction)goToHomepage:(id)sender {
     urlHomepage = [[NSUserDefaults standardUserDefaults]
@@ -278,7 +213,7 @@ float const floatDelaySeconds = 5.0;
     }
     [webViewFore loadRequest:
      [NSURLRequest requestWithURL:urlHomepage]];
-    [self prepareSignInWithWebView:webViewBack];
+    [webViewBack prepareSignIn];
 }
 
 - (IBAction)toggleSwitchIsClipping:(id)sender {
@@ -313,21 +248,6 @@ float const floatDelaySeconds = 5.0;
                                        range:NSMakeRange(0,strUrl.length)
                                 withTemplate:template];
     return strUrl;
-}
-- (NSString*)processEscapeString:(NSString*)strEsc withPattern:(NSString*)strPattern inString:(NSString*)strText{
-    NSRange match = [strText rangeOfString:strEsc];
-    while (match.location != NSNotFound){
-        NSString *string = strText;
-        NSString *template = @"$1/$2";
-        NSRegularExpression *regexp =
-        [NSRegularExpression regularExpressionWithPattern:strPattern options:0 error:nil];
-        strText = [regexp stringByReplacingMatchesInString:string
-                                                    options:0
-                                                      range:NSMakeRange(0, string.length)
-                                               withTemplate:template];
-        match = [strText rangeOfString:strEsc];
-    }    
-    return strText;
 }
 
 @end

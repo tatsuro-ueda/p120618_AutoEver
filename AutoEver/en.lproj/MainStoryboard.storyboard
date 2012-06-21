@@ -24,7 +24,7 @@
                                     <outlet property="delegate" destination="2" id="Eq9-qm-f3D"/>
                                 </connections>
                             </searchBar>
-                            <webView userInteractionEnabled="NO" contentMode="scaleToFill" id="bed-oC-PfD">
+                            <webView userInteractionEnabled="NO" contentMode="scaleToFill" id="bed-oC-PfD" customClass="AEWebViewBack">
                                 <rect key="frame" x="0.0" y="44" width="320" height="372"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -77,17 +77,15 @@
                                 </items>
                                 <color key="tintColor" red="0.43921568630000002" green="0.73725490199999999" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" id="seX-6l-tzf">
+                            <view userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" id="seX-6l-tzf">
                                 <rect key="frame" x="115" y="185" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="N7V-KU-x1i">
-                                        <rect key="frame" x="27" y="26" width="37" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </activityIndicatorView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="N7V-KU-x1i">
+                                <rect key="frame" x="141" y="212" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -101,6 +99,7 @@
                     </connections>
                 </viewController>
             </objects>
+            <point key="canvasLocation" x="205" y="71"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="E6O-fE-R2P">
@@ -307,6 +306,33 @@
         <image name="icon_home.png" width="30" height="30"/>
         <image name="icon_settings.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="AEMainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AEMainViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="goToHomepage:"/>
+                <relationship kind="action" name="toggleSwitchIsClipping:"/>
+                <relationship kind="action" name="urlCheck:"/>
+                <relationship kind="outlet" name="actIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="actIndicatorBack" candidateClass="UIView"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="switchIsClipping" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="webViewBack" candidateClass="AEWebViewBack"/>
+                <relationship kind="outlet" name="webViewFore" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="AESettingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AESettingViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="homepage" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userId" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="AEWebViewBack" superclassName="UIWebView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AEWebViewBack.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
