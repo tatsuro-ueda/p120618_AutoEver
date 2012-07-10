@@ -14,7 +14,7 @@
 
 @end
 
-float const floatDelaySeconds = 5.0;
+float const floatDelaySeconds = 20.0;
 
 @implementation AEMainViewController
 @synthesize searchBar;
@@ -86,6 +86,10 @@ float const floatDelaySeconds = 5.0;
     [searchBar setText:[webViewFore.request.URL description]];
     [actIndicator stopAnimating];
     actIndicatorBack.hidden = YES;
+    
+    // 設定のホームページ設定用にアドレスを取得する
+    [[NSUserDefaults standardUserDefaults] setURL:webViewFore.request.URL
+                                           forKey:Ever5secCurrentURLPrefKey];
     
     // 自動クリップがオンになっている、かつ、クリップ中ではない
     if (switchIsClipping.on == YES && blockingAutoClip == NO) {

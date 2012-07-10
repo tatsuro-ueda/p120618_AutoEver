@@ -14,15 +14,25 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>120616-clockIcon57x57.png</string>
-				<string>120616-clockIcon114x114.png</string>
+				<string>120622-AutoEverAppIcon3_57x57.png</string>
+				<string>120622-AutoEverAppIcon3_114x114.png</string>
 				<string>Default.png</string>
 				<string>Default@2x.png</string>
+				<string>120622-AutoEverAppIcon3_72x72.png</string>
+				<string>120622-AutoEverAppIcon3_144x144.png</string>
+				<string>Default@2x.png</string>
+				<string>Default-Portrait~ipad.png</string>
+				<string>Default-Portrait@2x~ipad.png</string>
+				<string>Default-Portrait@2x~ipad.png</string>
+				<string>Default-Landscape~ipad.png</string>
+				<string>Default-Landscape~ipad.png</string>
+				<string>Default-Portrait@2x~ipad.png</string>
+				<string>Default-Landscape@2x~ipad.png</string>
 			</array>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>net.weed777.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>net.weed777.AutoEver</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -30,11 +40,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>

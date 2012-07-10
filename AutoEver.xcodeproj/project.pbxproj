@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		073807821594461600E4397E /* AEUsageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 073807811594461600E4397E /* AEUsageViewController.m */; };
+		075DE56C1594763700FF9AED /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 075DE56B1594763700FF9AED /* Default-Portrait~ipad.png */; };
+		075DE56E1594763B00FF9AED /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 075DE56D1594763B00FF9AED /* Default-Portrait@2x~ipad.png */; };
+		075DE570159476B700FF9AED /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 075DE56F159476B700FF9AED /* Default-Landscape~ipad.png */; };
+		075DE572159476FB00FF9AED /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 075DE571159476FB00FF9AED /* Default-Landscape@2x~ipad.png */; };
 		07611709159285A900FA7A39 /* AEWebViewBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 07611708159285A900FA7A39 /* AEWebViewBack.m */; };
 		07B28A1F158D65B900E46615 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B28A1E158D65B900E46615 /* UIKit.framework */; };
 		07B28A21158D65B900E46615 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B28A20158D65B900E46615 /* Foundation.framework */; };
@@ -21,14 +26,24 @@
 		07CE3A12158D6C55003EC791 /* icon_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CE3A0F158D6C55003EC791 /* icon_home.png */; };
 		07CE3A13158D6C55003EC791 /* icon_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CE3A10158D6C55003EC791 /* icon_settings.png */; };
 		07CE3A15158D6FD4003EC791 /* 120615-arrows.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CE3A14158D6FD4003EC791 /* 120615-arrows.png */; };
-		07DF164B158DB66F0060BF5A /* 120616-clockIcon57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DF164A158DB66F0060BF5A /* 120616-clockIcon57x57.png */; };
-		07DF164E158DB6750060BF5A /* 120616-clockIcon114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DF164D158DB6750060BF5A /* 120616-clockIcon114x114.png */; };
+		07DE7B7215958087000DCFE2 /* 120622-AutoEverAppIcon3_144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DE7B7115958087000DCFE2 /* 120622-AutoEverAppIcon3_144x144.png */; };
+		07DE7B75159580BD000DCFE2 /* 120622-AutoEverAppIcon3_72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DE7B74159580BD000DCFE2 /* 120622-AutoEverAppIcon3_72x72.png */; };
+		07DE7B771595823B000DCFE2 /* 120622-AutoEverAppIcon3_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DE7B761595823B000DCFE2 /* 120622-AutoEverAppIcon3_57x57.png */; };
+		07DE7B7915958240000DCFE2 /* 120622-AutoEverAppIcon3_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DE7B7815958240000DCFE2 /* 120622-AutoEverAppIcon3_114x114.png */; };
 		07DF1650158DB6850060BF5A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DF164F158DB6850060BF5A /* Default.png */; };
 		07DF1652158DB6880060BF5A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DF1651158DB6880060BF5A /* Default@2x.png */; };
 		07F649D11591A3B000B133AD /* AEConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F649D01591A3B000B133AD /* AEConst.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		073807801594461600E4397E /* AEUsageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEUsageViewController.h; sourceTree = "<group>"; };
+		073807811594461600E4397E /* AEUsageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEUsageViewController.m; sourceTree = "<group>"; };
+		073FC12D159FFC8400E942A3 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = "/Users/weed/Dropbox/recent_private_doc/Xcode Projects/p120618_AutoEver/AutoEver/ja.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
+		073FC12E159FFC8400E942A3 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = "/Users/weed/Dropbox/recent_private_doc/Xcode Projects/p120618_AutoEver/AutoEver/ja.lproj/MainStoryboard.storyboard"; sourceTree = "<absolute>"; };
+		075DE56B1594763700FF9AED /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		075DE56D1594763B00FF9AED /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		075DE56F159476B700FF9AED /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		075DE571159476FB00FF9AED /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		07611707159285A900FA7A39 /* AEWebViewBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEWebViewBack.h; sourceTree = "<group>"; };
 		07611708159285A900FA7A39 /* AEWebViewBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEWebViewBack.m; sourceTree = "<group>"; };
 		07B28A1A158D65B900E46615 /* AutoEver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoEver.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,8 +65,10 @@
 		07CE3A0F158D6C55003EC791 /* icon_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_home.png; sourceTree = "<group>"; };
 		07CE3A10158D6C55003EC791 /* icon_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_settings.png; sourceTree = "<group>"; };
 		07CE3A14158D6FD4003EC791 /* 120615-arrows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120615-arrows.png"; sourceTree = "<group>"; };
-		07DF164A158DB66F0060BF5A /* 120616-clockIcon57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120616-clockIcon57x57.png"; sourceTree = "<group>"; };
-		07DF164D158DB6750060BF5A /* 120616-clockIcon114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120616-clockIcon114x114.png"; sourceTree = "<group>"; };
+		07DE7B7115958087000DCFE2 /* 120622-AutoEverAppIcon3_144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120622-AutoEverAppIcon3_144x144.png"; sourceTree = "<group>"; };
+		07DE7B74159580BD000DCFE2 /* 120622-AutoEverAppIcon3_72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120622-AutoEverAppIcon3_72x72.png"; sourceTree = "<group>"; };
+		07DE7B761595823B000DCFE2 /* 120622-AutoEverAppIcon3_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120622-AutoEverAppIcon3_57x57.png"; sourceTree = "<group>"; };
+		07DE7B7815958240000DCFE2 /* 120622-AutoEverAppIcon3_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120622-AutoEverAppIcon3_114x114.png"; sourceTree = "<group>"; };
 		07DF164F158DB6850060BF5A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		07DF1651158DB6880060BF5A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		07F649CF1591A3B000B133AD /* AEConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEConst.h; sourceTree = "<group>"; };
@@ -75,10 +92,16 @@
 		07B28A0F158D65B800E46615 = {
 			isa = PBXGroup;
 			children = (
+				07DE7B7815958240000DCFE2 /* 120622-AutoEverAppIcon3_114x114.png */,
+				07DE7B761595823B000DCFE2 /* 120622-AutoEverAppIcon3_57x57.png */,
+				07DE7B74159580BD000DCFE2 /* 120622-AutoEverAppIcon3_72x72.png */,
+				07DE7B7115958087000DCFE2 /* 120622-AutoEverAppIcon3_144x144.png */,
+				075DE571159476FB00FF9AED /* Default-Landscape@2x~ipad.png */,
+				075DE56F159476B700FF9AED /* Default-Landscape~ipad.png */,
+				075DE56D1594763B00FF9AED /* Default-Portrait@2x~ipad.png */,
+				075DE56B1594763700FF9AED /* Default-Portrait~ipad.png */,
 				07DF1651158DB6880060BF5A /* Default@2x.png */,
 				07DF164F158DB6850060BF5A /* Default.png */,
-				07DF164D158DB6750060BF5A /* 120616-clockIcon114x114.png */,
-				07DF164A158DB66F0060BF5A /* 120616-clockIcon57x57.png */,
 				07B28A24158D65B900E46615 /* AutoEver */,
 				07B28A1D158D65B900E46615 /* Frameworks */,
 				07B28A1B158D65B900E46615 /* Products */,
@@ -106,10 +129,8 @@
 		07B28A24158D65B900E46615 /* AutoEver */ = {
 			isa = PBXGroup;
 			children = (
-				07CE3A14158D6FD4003EC791 /* 120615-arrows.png */,
-				07CE3A0E158D6C55003EC791 /* icon_arrow_left.png */,
-				07CE3A0F158D6C55003EC791 /* icon_home.png */,
-				07CE3A10158D6C55003EC791 /* icon_settings.png */,
+				07F649CF1591A3B000B133AD /* AEConst.h */,
+				07F649D01591A3B000B133AD /* AEConst.m */,
 				07B28A2D158D65B900E46615 /* AEAppDelegate.h */,
 				07B28A2E158D65B900E46615 /* AEAppDelegate.m */,
 				07B28A30158D65B900E46615 /* MainStoryboard.storyboard */,
@@ -117,10 +138,14 @@
 				07B28A34158D65B900E46615 /* AEMainViewController.m */,
 				07611707159285A900FA7A39 /* AEWebViewBack.h */,
 				07611708159285A900FA7A39 /* AEWebViewBack.m */,
-				07F649CF1591A3B000B133AD /* AEConst.h */,
-				07F649D01591A3B000B133AD /* AEConst.m */,
 				07CE3A0A158D6AD0003EC791 /* AESettingViewController.h */,
 				07CE3A0B158D6AD0003EC791 /* AESettingViewController.m */,
+				073807801594461600E4397E /* AEUsageViewController.h */,
+				073807811594461600E4397E /* AEUsageViewController.m */,
+				07CE3A14158D6FD4003EC791 /* 120615-arrows.png */,
+				07CE3A0E158D6C55003EC791 /* icon_arrow_left.png */,
+				07CE3A0F158D6C55003EC791 /* icon_home.png */,
+				07CE3A10158D6C55003EC791 /* icon_settings.png */,
 				07B28A25158D65B900E46615 /* Supporting Files */,
 			);
 			path = AutoEver;
@@ -194,10 +219,16 @@
 				07CE3A12158D6C55003EC791 /* icon_home.png in Resources */,
 				07CE3A13158D6C55003EC791 /* icon_settings.png in Resources */,
 				07CE3A15158D6FD4003EC791 /* 120615-arrows.png in Resources */,
-				07DF164B158DB66F0060BF5A /* 120616-clockIcon57x57.png in Resources */,
-				07DF164E158DB6750060BF5A /* 120616-clockIcon114x114.png in Resources */,
 				07DF1650158DB6850060BF5A /* Default.png in Resources */,
 				07DF1652158DB6880060BF5A /* Default@2x.png in Resources */,
+				075DE56C1594763700FF9AED /* Default-Portrait~ipad.png in Resources */,
+				075DE56E1594763B00FF9AED /* Default-Portrait@2x~ipad.png in Resources */,
+				075DE570159476B700FF9AED /* Default-Landscape~ipad.png in Resources */,
+				075DE572159476FB00FF9AED /* Default-Landscape@2x~ipad.png in Resources */,
+				07DE7B7215958087000DCFE2 /* 120622-AutoEverAppIcon3_144x144.png in Resources */,
+				07DE7B75159580BD000DCFE2 /* 120622-AutoEverAppIcon3_72x72.png in Resources */,
+				07DE7B771595823B000DCFE2 /* 120622-AutoEverAppIcon3_57x57.png in Resources */,
+				07DE7B7915958240000DCFE2 /* 120622-AutoEverAppIcon3_114x114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +245,7 @@
 				07CE3A0C158D6AD0003EC791 /* AESettingViewController.m in Sources */,
 				07F649D11591A3B000B133AD /* AEConst.m in Sources */,
 				07611709159285A900FA7A39 /* AEWebViewBack.m in Sources */,
+				073807821594461600E4397E /* AEUsageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +256,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				07B28A28158D65B900E46615 /* en */,
+				073FC12D159FFC8400E942A3 /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -232,6 +265,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				07B28A31158D65B900E46615 /* en */,
+				073FC12E159FFC8400E942A3 /* ja */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
@@ -290,7 +324,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AutoEver/AutoEver-Prefix.pch";
 				INFOPLIST_FILE = "AutoEver/AutoEver-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -301,7 +337,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AutoEver/AutoEver-Prefix.pch";
 				INFOPLIST_FILE = "AutoEver/AutoEver-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -12,3 +12,4 @@ extern NSString* const Ever5secUserIdPrefKey;
 extern NSString* const Ever5secPasswordPrefKey;
 extern NSString* const Ever5secHomepagePrefKey;
 extern NSString* const Ever5secIsJustLaunchedPrefKey;
+extern NSString* const Ever5secCurrentURLPrefKey;

@@ -105,4 +105,23 @@
     }
 }
 
+- (IBAction)dismiss:(id)sender {
+     [self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)setCurrentPageAsHomepage:(id)sender {
+    NSURL* url = [[NSUserDefaults standardUserDefaults] 
+                  URLForKey:Ever5secCurrentURLPrefKey];
+    [[NSUserDefaults standardUserDefaults]
+     setURL:url forKey:Ever5secHomepagePrefKey];
+    homepage.text = [url description];
+}
+
+- (IBAction)setGoogleReaderAsHomepage:(id)sender {
+    NSURL* url = [NSURL URLWithString:@"http://www.google.com/reader/"];
+    [[NSUserDefaults standardUserDefaults] 
+     setURL:url forKey:Ever5secHomepagePrefKey];
+    homepage.text = [url description];
+}
+
 @end

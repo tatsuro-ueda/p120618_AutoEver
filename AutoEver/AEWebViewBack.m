@@ -47,7 +47,10 @@
     [alertClipped show];
     
     // 0.3秒後にメッセージを消す
-    [self performSelector:@selector(messageClear) withObject:nil afterDelay:0.3];
+//    [self performSelector:@selector(messageClear) 
+//               withObject:nil afterDelay:0.3];
+    [self performSelector:@selector(messageClear) 
+               withObject:nil afterDelay:10.0];       // スクリーンショット撮影用
 }
 
 - (void)messageClear {

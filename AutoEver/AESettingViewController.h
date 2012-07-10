@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface AESettingViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UITextField *homepage;
 @property (strong, nonatomic) IBOutlet UITextField *userId;
 @property (strong, nonatomic) IBOutlet UITextField *password;
+@property (strong, nonatomic) IBOutlet UITextField *homepage;
 
 - (void)textFieldDidEndEditing:(UITextField *)sender;
 - (void)textFieldShouldReturn:(UITextField *)sender;
+- (IBAction)dismiss:(id)sender;
+- (IBAction)setCurrentPageAsHomepage:(id)sender;
+- (IBAction)setGoogleReaderAsHomepage:(id)sender;
 
 @end

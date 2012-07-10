@@ -14,3 +14,4 @@ NSString* const Ever5secUserIdPrefKey = @"Ever5secUserIdPrefKey";
 NSString* const Ever5secPasswordPrefKey = @"Ever5secPasswordPrefKey";
 NSString* const Ever5secHomepagePrefKey = @"Ever5secUrlHomepagePrefKey";
 NSString* const Ever5secIsJustLaunchedPrefKey = @"Ever5secIsJustLaunchedPrefKey";
+NSString* const Ever5secCurrentURLPrefKey = @"Ever5secCurrentURL";
