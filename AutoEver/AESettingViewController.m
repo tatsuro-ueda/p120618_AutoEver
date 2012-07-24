@@ -35,7 +35,6 @@
                    objectForKey:Ever5secUserIdPrefKey];
     password.text = [[NSUserDefaults standardUserDefaults]
                      objectForKey:Ever5secPasswordPrefKey];
-    password.secureTextEntry = YES;
     homepage.text = [[[NSUserDefaults standardUserDefaults]
                       URLForKey:Ever5secHomepagePrefKey]
                      description];

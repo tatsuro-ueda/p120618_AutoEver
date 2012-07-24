@@ -190,7 +190,7 @@ float const floatDelaySeconds = 20.0;
         NSString* strUrl = [url description];
         NSLog(@"URL contains gwt");
         strUrl = [self stringBeDeletedGwtUrlFromString:strUrl];
-        strUrl = [strUrl stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];            
+        strUrl = [strUrl stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
         NSLog(@"strUrl = %@", strUrl);
         url = [NSURL URLWithString:strUrl];
     }
